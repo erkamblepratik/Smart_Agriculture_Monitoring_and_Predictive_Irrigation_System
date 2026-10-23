@@ -1,0 +1,241 @@
+/* ==========================================================================
+   SmartAgri - Agrometeorological Weather Center Stylesheet
+   Page: weather.html
+   Includes: Weather Hero Card, Live Atmospheric Readout, 7-Day Forecast Strip
+   ========================================================================== */
+
+/* Weather Information Card */
+/* Weather Information Card */
+.weather-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 0.85rem;
+}
+
+.weather-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.35rem 0;
+}
+
+.weather-art {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0) 70%);
+  animation: pulse-glow 2.5s infinite;
+}
+
+.weather-sun-svg {
+  width: 54px;
+  height: 54px;
+  animation: spinSlow 30s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.weather-temp-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-degrees {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.weather-condition {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.weather-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.65rem;
+}
+
+.weather-metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.weather-param-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.weather-param-val {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+
+/* Weather Hero Card & 7-Day Forecast */
+/* ==========================================================================
+   MODULE 10: WEATHER INFORMATION CENTER
+   ========================================================================== */
+.weather-hero-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+  border: 1px solid #bae6fd;
+}
+
+.weather-hero-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.weather-now-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.weather-hero-icon {
+  font-size: 3.5rem;
+}
+
+.weather-big-readout {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-big-temp {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.weather-big-desc {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0369a1;
+  margin: 0.15rem 0;
+}
+
+.weather-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  flex: 1;
+}
+
+.hero-stat-box {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-box-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.stat-box-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+/* 7-Day Forecast Strip */
+.forecast-seven-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.forecast-day-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 0.65rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  text-align: center;
+  transition: transform var(--transition-fast);
+}
+
+.forecast-day-card:hover {
+  transform: translateY(-2px);
+  background: #ffffff;
+  border-color: #cbd5e1;
+}
+
+.forecast-day-card.today {
+  background: #f0fdf4;
+  border-color: #86efac;
+}
+
+.day-name {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.forecast-icon {
+  font-size: 1.5rem;
+  margin: 0.25rem 0;
+}
+
+.day-temps {
+  display: flex;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.rain-chance {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+@media (max-width: 900px) {
+  .forecast-seven-days {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .forecast-seven-days {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

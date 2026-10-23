@@ -1,0 +1,926 @@
+/* ==========================================================================
+   SmartAgri - Dashboard Stylesheet
+   Page: index.html / dashboard.html
+   Includes: Sensor Stat Cards, Dashboard Rows, ML Gauge, Irrigation & Crop Cards,
+   Mini Alerts, Weather Widget, System Status & Responsive Grids
+   ========================================================================== */
+
+/* Top 5 Sensor Stat Cards */
+/* ==========================================================================
+   TOP 5 SENSOR STAT CARDS
+   ========================================================================== */
+.stat-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.bg-green-light { background: #dcfce7; }
+.bg-red-light { background: #fee2e2; }
+.bg-blue-light { background: #e0f2fe; }
+.bg-mint-light { background: #d1fae5; }
+.bg-cyan-light { background: #cffafe; }
+
+.text-green { color: #16a34a; }
+.text-red { color: #ef4444; }
+.text-blue { color: #0284c7; }
+.text-emerald { color: #059669; }
+.text-cyan { color: #0284c7; }
+.text-purple { color: #7c3aed; }
+.text-slate { color: #475569; }
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.card-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  margin: 0.15rem 0 0.35rem 0;
+}
+
+.card-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.card-unit {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Badges */
+.card-badge, .table-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.65rem;
+  border-radius: var(--radius-full);
+  width: fit-content;
+}
+
+.badge-optimal {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.badge-normal {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.badge-active {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.badge-warning {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.badge-danger {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+
+/* Dashboard Row Grids */
+/* ==========================================================================
+   DASHBOARD ROWS & CARDS
+   ========================================================================== */
+.dashboard-row {
+  display: grid;
+  gap: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Row 1: 50% / 25% / 25% */
+.row-charts {
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+/* Row 2: 35% / 35% / 30% */
+.row-middle-ops {
+  grid-template-columns: 1.15fr 1.15fr 0.95fr;
+}
+
+/* Row 3: 35% / 35% / 30% */
+.row-bottom-status {
+  grid-template-columns: 1.15fr 1.15fr 0.95fr;
+}
+
+/* Dashboard Card ML Prediction */
+/* ==========================================================================
+   CARD: ML PREDICTION
+   ========================================================================== */
+.card-ml-prediction .ml-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.ml-highlight-box {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.85rem;
+}
+
+.ml-highlight-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.ml-leaf-icon {
+  width: 36px;
+  height: 36px;
+  background: #22c55e;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.ml-decision h4 {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #15803d;
+  line-height: 1.25;
+}
+
+.confidence-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.ml-metric-box {
+  padding: 0.25rem 0;
+}
+
+.ml-sublabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: block;
+}
+
+.ml-value-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+.ml-number {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.ml-pct {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.ml-action-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 0.65rem 0.85rem;
+}
+
+.ml-action-icon {
+  font-size: 1.35rem;
+  flex-shrink: 0;
+}
+
+.action-heading {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: block;
+}
+
+.action-desc {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+
+/* Dashboard Irrigation Control Card */
+/* ==========================================================================
+   IRRIGATION CONTROL CARD
+   ========================================================================== */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.toggle-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* iOS-style Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e1;
+  transition: 0.25s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.25s;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+input:checked + .slider {
+  background-color: #16a34a;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.irrigation-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.pump-status-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+}
+
+.pump-icon-container {
+  width: 54px;
+  height: 54px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pump-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.pump-svg.running #pumpImpeller {
+  transform-origin: 18px 35px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.water-pulse {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  pointer-events: none;
+}
+
+.pump-svg.running ~ .water-pulse {
+  border-color: rgba(2, 132, 199, 0.5);
+  animation: waterRipple 1.2s infinite ease-out;
+}
+
+@keyframes waterRipple {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(1.4); opacity: 0; }
+}
+
+.pump-readout {
+  display: flex;
+  flex-direction: column;
+}
+
+.pump-subtitle {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.pump-state-text {
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.state-off {
+  color: #475569;
+}
+
+.state-on {
+  color: #16a34a;
+  animation: pulse-glow 1.5s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.75; }
+}
+
+.pump-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-turn-on {
+  background: #16a34a;
+  color: #ffffff;
+}
+
+.btn-turn-on:hover {
+  background: #15803d;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.35);
+}
+
+.btn-turn-on.active {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #16a34a;
+}
+
+.btn-turn-off {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-turn-off:hover {
+  background: #b91c1c;
+}
+
+.btn-turn-off.active {
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #dc2626;
+}
+
+/* Irrigation Substats Row */
+.irrigation-substats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.65rem;
+}
+
+.substat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #f8fafc;
+  padding: 0.55rem 0.65rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #f1f5f9;
+}
+
+.substat-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.green-circle {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.blue-circle {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.substat-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.substat-title {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.substat-val {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+
+/* Dashboard Crop Health Card */
+/* ==========================================================================
+   CROP HEALTH CARD
+   ========================================================================== */
+.crop-health-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.crop-health-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.crop-health-score-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.crop-score-wrapper {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  flex-shrink: 0;
+}
+
+.crop-donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut-bg {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 8;
+}
+
+.donut-progress {
+  fill: none;
+  stroke: #16a34a;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.donut-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-percent {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.donut-label-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.donut-condition-title {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #15803d;
+  line-height: 1.15;
+}
+
+.donut-condition-sub {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.crop-image-container {
+  width: 95px;
+  height: 85px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-card);
+  flex-shrink: 0;
+}
+
+.crop-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.crop-photo:hover {
+  transform: scale(1.08);
+}
+
+.crop-badge-overlay {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.crop-badge-overlay i {
+  color: #4ade80;
+}
+
+/* Crop Checklist */
+.crop-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.check-item .check-icon {
+  color: #16a34a;
+  font-size: 0.9rem;
+}
+
+
+/* Dashboard Bottom Row: Mini Alerts, Weather Widget, System Status */
+/* ==========================================================================
+   BOTTOM ROW: ALERTS, WEATHER, SYSTEM STATUS
+   ========================================================================== */
+/* Alerts Card */
+.card-alerts .card-header .text-red {
+  color: #dc2626;
+}
+
+.view-all-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.view-all-link:hover {
+  color: #16a34a;
+  text-decoration: underline;
+}
+
+.alerts-feed-wrapper {
+  overflow-y: auto;
+  max-height: 175px;
+}
+
+.alerts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.78rem;
+  padding: 0.2rem 0;
+}
+
+.alert-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.bullet-green { background: #22c55e; }
+.bullet-yellow { background: #eab308; }
+.bullet-blue { background: #0284c7; }
+.bullet-red { background: #ef4444; }
+
+.alert-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.alert-text {
+  color: var(--text-main);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Weather Information Card */
+.weather-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 0.85rem;
+}
+
+.weather-hero {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.35rem 0;
+}
+
+.weather-art {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sun-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.3) 0%, rgba(245, 158, 11, 0) 70%);
+  animation: pulse-glow 2.5s infinite;
+}
+
+.weather-sun-svg {
+  width: 54px;
+  height: 54px;
+  animation: spinSlow 30s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.weather-temp-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-degrees {
+  font-size: 1.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.weather-condition {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #475569;
+}
+
+.weather-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 0.65rem;
+}
+
+.weather-metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.78rem;
+}
+
+.weather-param-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.weather-param-val {
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* System Status Card */
+.status-pill-all-active {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.system-status-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.system-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+}
+
+.system-name-group {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.item-status-icon {
+  font-size: 0.85rem;
+}
+
+.status-badge-online {
+  background: #dcfce7;
+  color: #15803d;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.15rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+
+/* Dashboard Responsive Layout */
+@media (max-width: 1400px) {
+  .stat-cards-grid,
+  .sensor-overview-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .row-charts {
+    grid-template-columns: 1fr 1fr;
+  }
+  .card-ml-prediction {
+    grid-column: span 2;
+  }
+  .row-middle-ops, .row-bottom-status {
+    grid-template-columns: 1fr 1fr;
+  }
+  .card-crop-health, .card-system-status {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 1024px) {
+  .stat-cards-grid,
+  .sensor-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .row-charts, .row-middle-ops, .row-bottom-status {
+    grid-template-columns: 1fr;
+  }
+  .card-ml-prediction, .card-crop-health, .card-system-status {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .stat-cards-grid,
+  .sensor-overview-grid {
+    grid-template-columns: 1fr;
+  }
+}

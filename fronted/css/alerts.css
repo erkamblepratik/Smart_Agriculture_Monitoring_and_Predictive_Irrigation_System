@@ -1,0 +1,115 @@
+/* ==========================================================================
+   SmartAgri - Alerts & Incident Management Center Stylesheet
+   Page: alerts.html
+   Includes: Category Filter Pills, Alert Management Table, Severity Badges & Feeds
+   ========================================================================== */
+
+/* Category Filter Bar & Pills */
+/* ==========================================================================
+   MODULE 9: ALERTS & INCIDENT MANAGEMENT CENTER
+   ========================================================================== */
+.alerts-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  background: #f1f5f9;
+  border: 1px solid var(--border-card);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-pill:hover {
+  background: #e2e8f0;
+}
+
+.filter-pill.active {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #ffffff;
+}
+
+
+/* Alerts List & Bullet Items */
+/* Alerts Card */
+.card-alerts .card-header .text-red {
+  color: #dc2626;
+}
+
+.view-all-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.view-all-link:hover {
+  color: #16a34a;
+  text-decoration: underline;
+}
+
+.alerts-feed-wrapper {
+  overflow-y: auto;
+  max-height: 175px;
+}
+
+.alerts-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.alert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 0.78rem;
+  padding: 0.2rem 0;
+}
+
+.alert-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.bullet-green { background: #22c55e; }
+.bullet-yellow { background: #eab308; }
+.bullet-blue { background: #0284c7; }
+.bullet-red { background: #ef4444; }
+
+.alert-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  min-width: 60px;
+}
+
+.alert-text {
+  color: var(--text-main);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.alerts-management-table th {
+  background: #f8fafc;
+}

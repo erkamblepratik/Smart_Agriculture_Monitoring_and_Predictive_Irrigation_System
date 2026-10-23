@@ -1,0 +1,27 @@
+/* ==========================================================================
+   SmartAgri - Master Stylesheet Aggregator
+   Modular Architecture:
+   - common.css             : Shared shell, design tokens, sidebar, topbar, modal & toasts
+   - dashboard.css          : Main dashboard grids, sensor cards, gauges & status cards
+   - live-monitoring.css    : Live ESP32 telemetry, diagnostic stats & terminal log feed
+   - sensor-data.css        : Historical sensor data records table & export toolbar
+   - ml-prediction.css      : ML predictive irrigation engine & feature importance bars
+   - irrigation-control.css : Valve management, multi-zone controls & pump sliders
+   - crop-analysis.css      : Agronomic crop health, NDVI circle & disease risk matrix
+   - reports.css            : Water analytics, savings KPIs & consumption charts
+   - alerts.css             : Incident management, filter pills & severity indicators
+   - weather.css            : Agrometeorology center, 7-day forecast & weather metrics
+   - settings.css           : Gateway hardware, network & sensor calibration settings
+   ========================================================================== */
+
+@import url('common.css');
+@import url('dashboard.css');
+@import url('live-monitoring.css');
+@import url('sensor-data.css');
+@import url('ml-prediction.css');
+@import url('irrigation-control.css');
+@import url('crop-analysis.css');
+@import url('reports.css');
+@import url('alerts.css');
+@import url('weather.css');
+@import url('settings.css');

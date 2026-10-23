@@ -1,0 +1,51 @@
+/* ==========================================================================
+   SmartAgri - Water Analytics & Conservation Reports Stylesheet
+   Page: reports.html
+   Includes: Conservation KPI Summary Cards, Consumption Badges & Stats
+   ========================================================================== */
+
+/* Reports Summary Cards */
+/* Reports Summary Cards */
+.reports-summary-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.report-stat-card {
+  background: #ffffff;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  box-shadow: var(--shadow-card);
+}
+
+.report-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.report-val {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.report-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #15803d;
+}
+
+
+/* Reports Responsive */
+@media (max-width: 640px) {
+  .reports-summary-cards {
+    grid-template-columns: 1fr;
+  }
+}

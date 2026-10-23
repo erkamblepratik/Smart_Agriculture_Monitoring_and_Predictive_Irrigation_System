@@ -1,0 +1,29 @@
+/* ==========================================================================
+   SmartAgri - Sensor Data Historical Records Stylesheet
+   Page: sensor-data.html
+   Includes: Full Table View, Data Filtering Bar, Search Inputs, Export Toolbar
+   ========================================================================== */
+
+.full-table-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+.search-input {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 0.45rem 0.85rem;
+  font-size: 0.82rem;
+  color: var(--text-main);
+  outline: none;
+  transition: border-color var(--transition-fast);
+}
+
+.search-input:focus {
+  border-color: var(--primary-green);
+  background: #ffffff;
+}

@@ -1,0 +1,50 @@
+/* ==========================================================================
+   SmartAgri - Live Telemetry & Monitoring Stylesheet
+   Page: live-monitoring.html
+   Includes: Diagnostics Grid, Gateway Hardware Stats, Live Terminal Stream Box
+   ========================================================================== */
+
+/* Diagnostics & ESP32 Telemetry Grid */
+/* Live Monitoring Grid */
+.diagnostics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 1.25rem;
+}
+
+.diag-stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.diag-stat-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.85rem;
+}
+
+.terminal-box {
+  background: #0f172a;
+  color: #4ade80;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.78rem;
+  padding: 0.85rem;
+  border-radius: var(--radius-md);
+  height: 240px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+
+/* Live Diagnostics Responsive */
+@media (max-width: 1024px) {
+  .diagnostics-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

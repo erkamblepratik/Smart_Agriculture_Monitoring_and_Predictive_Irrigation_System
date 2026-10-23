@@ -1,0 +1,236 @@
+/* ==========================================================================
+   SmartAgri - Crop Health & Agronomic Analysis Stylesheet
+   Page: crop-analysis.html
+   Includes: Crop Analysis Grid, NDVI Indices Circle, Disease Risk List
+   ========================================================================== */
+
+/* Crop Analysis Grid & NDVI Meter */
+/* Crop Analysis Grid */
+.crop-analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 1.25rem;
+}
+
+.ndvi-display {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.ndvi-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #dcfce7;
+  border: 4px solid #16a34a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ndvi-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #15803d;
+}
+
+.ndvi-sub {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.ndvi-desc {
+  font-size: 0.85rem;
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.disease-risk-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.risk-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem;
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-card);
+}
+
+.risk-info strong {
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+.risk-info p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+
+/* Crop Health Top Scores & Checklist */
+.crop-health-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.crop-health-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.crop-health-score-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.crop-score-wrapper {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  flex-shrink: 0;
+}
+
+.crop-donut-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut-bg {
+  fill: none;
+  stroke: #e2e8f0;
+  stroke-width: 8;
+}
+
+.donut-progress {
+  fill: none;
+  stroke: #16a34a;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease;
+}
+
+.donut-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-percent {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.donut-label-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.donut-condition-title {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #15803d;
+  line-height: 1.15;
+}
+
+.donut-condition-sub {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.crop-image-container {
+  width: 95px;
+  height: 85px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border-card);
+  flex-shrink: 0;
+}
+
+.crop-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.crop-photo:hover {
+  transform: scale(1.08);
+}
+
+.crop-badge-overlay {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.crop-badge-overlay i {
+  color: #4ade80;
+}
+
+/* Crop Checklist */
+.crop-checklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.78rem;
+  color: #334155;
+  font-weight: 500;
+}
+
+.check-item .check-icon {
+  color: #16a34a;
+  font-size: 0.9rem;
+}
+
+
+/* Crop Analysis Responsive */
+@media (max-width: 1024px) {
+  .crop-analysis-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
